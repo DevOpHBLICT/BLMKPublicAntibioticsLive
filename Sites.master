@@ -1,0 +1,166 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Sites.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %></title>
+ 
+	   <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel = "stylesheet">
+
+    
+  
+
+
+ 
+    
+    <link href="../Content/bootstrap.css" rel="stylesheet" />
+    
+    <link href="../Content/Site.css" rel="stylesheet" />
+
+
+
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+   
+
+
+    <style type="text/css">
+        .auto-style1 {
+            width: 578px;
+        }
+    </style>
+   
+
+
+</head>
+
+ 
+
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+           
+              
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+
+      
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+
+
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="navbar navbar-default cust-header nhs_color" >
+  <div class="container-fluid">
+    <div class="navbar-header nhs_color" ">
+ <a class="navbar-brand" rel="home" href="Index.aspx" title="">
+        <img height="50" style="margin-top: -7px;"
+             src="antibiotics.png">
+    </a>
+
+
+<a class="navbar-brand" rel="home" href="Index.aspx" title="">
+        <img height="50" style=" margin-top: -7px;"
+             src="hblict.png">
+    </a>
+
+    </div>
+
+    <ul class="nav navbar-nav navbar-center">
+ 
+
+    <li>
+<a class="navbar-brand" href="#" style="color: #FFFFFF"><H2 class="auto-style1"><%:Page.Title %></H2></a>
+    </li>
+        </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li><a class="navbar-brand" rel="home" href="Index.aspx" title="">
+        <img id="logo" height="50" style=" margin-top: -7px;"
+             src="" runat="server">
+    </a></li>
+            
+     
+             </ul>
+  </div>
+
+           
+
+
+
+
+</nav>
+
+
+
+
+      
+
+      
+        <div class="custom_container">
+            			
+
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <div id="nav">
+            <asp:SiteMapDataSource ID="menuData" runat="server" />
+            <asp:Menu ID="m1" runat="server" DataSourceID="menuData"
+                StaticDisplayLevels="2" Orientation="Horizontal" BackColor="#F7F6F3" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#7C6F57" StaticSubMenuIndent="10px" >
+                <DynamicHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                <DynamicMenuStyle BackColor="#F7F6F3" />
+                <DynamicSelectedStyle BackColor="#5D7B9D" />
+                <StaticHoverStyle BackColor="#7C6F57" ForeColor="White" />
+                <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                <StaticSelectedStyle BackColor="#5D7B9D" />
+                    </asp:Menu>
+                    <asp:SiteMapPath ID="smp1" runat="server" Font-Names="Verdana" Font-Size="0.8em" PathSeparator=" : ">
+                        <CurrentNodeStyle ForeColor="#333333" />
+                        <NodeStyle Font-Bold="True" ForeColor="#284E98" />
+                        <PathSeparatorStyle Font-Bold="True" ForeColor="#507CD1" />
+                        <RootNodeStyle Font-Bold="True" ForeColor="#507CD1" />
+                    </asp:SiteMapPath>
+        </div>	
+    
+     
+           
+    
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                 
+             <p>&copy; <%: DateTime.Now.Year %> - DevOps HBL ICT Services application</p>
+            </footer>
+        </div>
+    </form>
+</body>
+
+      <script type="text/javascript">
+          $(".nav li").click(function () {
+              $('.nav li').removeClass('active');
+              $(this).addClass('active');
+          });
+      </script>
+
+</html>
